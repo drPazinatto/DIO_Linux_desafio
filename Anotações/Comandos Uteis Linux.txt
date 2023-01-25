@@ -47,7 +47,63 @@ gpasswd -d user group1
 
 Permissoes de arquivos e diretorios
 3 colunas, dono, grupo e outros
-Leitura  4
-Escrita  2 
-Execução 1
+Leitura(R)  4
+Escrita(W)  2 
+Execução(X) 1
 Nada     0
+chmod 750 (dono full, grupo R X e outros nada
+
+Trocar grupo do arquivo/diretorio
+chown root:NomeGrupo "arquivo"
+
+
+lsblk = exibir discos do sistema
+fdisk -l = exibir discos do sistema
+
+criar o disco utilizar o fdisk com as opções de help usando o m ou help
+ao sair utilizar o W para salvar as configurações realizadas.
+
+Para utilizar o disco é necessário monta-lo em uma pasta
+por padrão utiliza-se a pasta /mnt para tal.
+Dentro do /mnt a pasta é criada e montada o disco nela com o comando
+mount /dev/sdb	/mnt/Disco2 por exemplo
+
+mkfs.ext4 = formatar e definir sistema de arquivos, ext4 ext3 XFS
+
+Para ver aonde os discos estao montados utiliza-se o comando
+lsblk
+
+Para que as partições sejam salvas ao reiniciar o sistema
+precisa editar o FSTAB dentro do etc utiliza-se o comando
+nano /etc/fstab
+basta adicionar a linha ao fim do arquivo com o disco, ponto de montagem, 
+sistema de arquivos e parametros de configuração
+/dev/sdb /mnt/Disco2 ext4 defaults 0 0 
+
+
+copiar arquivos
+cp origem/ destino/ parametros
+os filtros de arquivos funcionam *.txt copiarão todos os txt
+arquivos com nomes iguais serão sobrepostos para evitar utilizar a 
+variavel -i 
+cp origem/arquivo.txt destino -i -v (v verbose, mostra as ações)
+
+Recortar, mover arquivos
+mv origem/ destino/ parametros
+Renomear arquivo	
+mv orgigem/arquivo1.txt destino/arquivo10.txt -i -v
+
+
+Exibir processos em execução
+ps aux (a proc de todos usuarios, u de username quem executou e x todos 
+processos que estao em execução
+
+para fechar processos utilize o PID do processo exibido no PS
+kill numero processo PID
+
+para inumeros processos do mesmo programa (chrome p exemplo)
+killall chrome
+
+who -a
+exibe usuários logados no omento e sua PID
+para derruba-lo só dar um kill PID do usuário
