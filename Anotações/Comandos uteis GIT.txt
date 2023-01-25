@@ -1,3 +1,12 @@
+Ao adicionar arquivos no repositorio local, validar o status deles com o 
+"git status" os arquivos novos ficarão exibidos em vermelho no bash.
+Para sincroniza-los e informar ao git que tem a intenção de envia-los para nuvem
+é necessário dar um "git add ." feito isso rodar um novo "git status" e validar se os 
+arquivos que estavam em vermelho agora estao verdes.
+Apos isso rodar um "git commit -m "Mensagem com os dados do comit, como projetos e infos dos arquivos"
+Feito isso rode um git status e veja que tem a informação de commit local que pode ser enviado para nuvem.
+Para enviar os commits pendentes para a nuvem execute
+"git push origin main" 
 
 Criar novo repositório
 git init

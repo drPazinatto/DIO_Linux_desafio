@@ -1,0 +1,53 @@
+Comando linux
+"comando" --help exibe as variaveis disponiveis de cada comando.
+cd = acessar pastas cd /etc/opt
+ls -la = listar arquivos dentro da pasta 
+pwd = mostra o caminho do diretorio atual
+touch = criar arquivos
+find -name = buscar arquivos pelo nome, interessante buscar a partir da raiz
+
+useradd = criar usuario -m cria pasta prt -c "comentario" -s /bin/bash libera bash
+"useradd User -m -c "Usuário sistema" -s /bin/bash"
+useradd user -c "User sistema" -s /bin/bash -m -p $(openssl passwd -crypt Abc123*)
+userdel -f = excluir usuario (forçado) -r exclui files	 
+usermod user = altera opções do usuário, pasta, bash e afins
+passwd user = trocar senha.
+passwd user -e = força usuário trocar a senha
+ 
+ 
+SCRIPT que cria usuários e solicita troca da senha no primeiro acesso. 
+echo "================================================="
+echo "==============Criando Usuários!=================="
+echo "================================================="
+
+useradd guest10 -c "Usuário Convidado" -s /bin/bash -m
+passwd guest10 -e
+
+useradd guest11 -c "Usuário Convidado" -s /bin/bash -m
+passwd guest11 -e
+
+useradd guest12 -c "Usuário Convidado" -s /bin/bash -m
+passwd guest12 -e
+
+useradd guest13 -c "Usuário Convidado" -s /bin/bash -m
+passwd guest13 -e
+
+
+echo "================================================="
+echo "==============usuário criados!!=================="
+echo "================================================="
+
+
+Adicionar uusário a grupos
+usermod -G group1, group2 usuário
+ver groups
+cat /etc/group
+remover grupos
+gpasswd -d user group1
+
+Permissoes de arquivos e diretorios
+3 colunas, dono, grupo e outros
+Leitura  4
+Escrita  2 
+Execução 1
+Nada     0
